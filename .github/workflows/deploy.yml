@@ -22,4 +22,4 @@ jobs:
         keyFile: ".ansible/ssh-key"
         keyFileVaultPass: ${{ secrets.KEYFILE_VAULT_PASS }}
         extraVars: "-e ansible_ssh_user=${{ secrets.ANSIBLE_USER }}"
-        verbosity: "vv"
+        verbosity: "vvv"

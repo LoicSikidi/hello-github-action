@@ -7,10 +7,14 @@ on:
 jobs:
 
   run-playbook:
-    uses: saubermacherag/ansible-playbook-docker-action@v1.3
-    with:
-      playbookName: 'main.yml'
-      inventoryFile: '.ansible/inventory'
-      keyFile: ".ansible/ssh-key"
-      keyFileVaultPass: ${{ secrets.KEYFILE_VAULT_PASS }}
-      extraVars: "-e ansible_ssh_user=${{ secrets.ANSIBLE_USER }}"
+    name: Run a playbook
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: saubermacherag/ansible-playbook-docker-action@v1.3
+      with:
+        playbookName: 'main.yml'
+        inventoryFile: '.ansible/inventory'
+        keyFile: ".ansible/ssh-key"
+        keyFileVaultPass: ${{ secrets.KEYFILE_VAULT_PASS }}
+        extraVars: "-e ansible_ssh_user=${{ secrets.ANSIBLE_USER }}"

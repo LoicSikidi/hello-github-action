@@ -1,6 +1,8 @@
 ---
 - hosts: all
-    
   tasks:
     - name: run shell command
       shell: whoami
+      register: whoami_cmd
+    - debug:
+          var: whoami_cmd.stdout # not required. A variable name to debug.  Mutually exclusive with the 'msg' option.

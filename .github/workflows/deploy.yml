@@ -16,9 +16,11 @@ jobs:
       env:
         ANSIBLE_HOST_KEY_CHECKING: false
         ANSIBLE_FORCE_COLOR: true
+        ANSIBLE_DEBUG: true
       with:
         playbookName: 'main.yml'
         inventoryFile: '.ansible/inventory'
         keyFile: ".ansible/ssh-key"
         keyFileVaultPass: ${{ secrets.KEYFILE_VAULT_PASS }}
         extraVars: "-e ansible_ssh_user=${{ secrets.ANSIBLE_USER }}"
+        verbosity: "vvvv"
